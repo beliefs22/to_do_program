@@ -3,12 +3,13 @@ import projectcommands as project
 import taskcommands as task
 
 def initial_options():
-    print " 1. Select a current Projects"
-    print " 2. Add Project"
+    print " 1. Select a Project"
+    print " 2. Add a Project"
     print " 3. View Task Due this Week"
     print " 4. View Task Due this Month"
     print " 5. View Critical Task"
-    print " 6. Quit "
+    print " 6. View All Incomplete Task"
+    print " 7. Quit "
 
     ans = raw_input("Please Choose an option ")
     return ans
@@ -63,8 +64,11 @@ def main():
                     
         if choice == "2":
             project.add_project()
-
         if choice == "6":
+            task.show_all_pending_task()
+            
+
+        if choice == "7":
             break
 if __name__ == "__main__":
     main()

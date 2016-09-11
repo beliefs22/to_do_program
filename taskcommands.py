@@ -103,3 +103,27 @@ def update_notes(task_title, project_title):
     conn.commit()
     conn.close()
 
+def show_all_pending_task():
+    conn = sqlite3.connect('projectdata.db')
+    c = conn.cursor()
+
+    c.execute('''
+    SELECT *
+    FROM tasks''')
+
+    results =  list(c.fetchall())
+    for task in results:
+        print """
+        Task: %s
+        Project: %s
+        Start Date: %s
+        Due Date: %s
+        Notes: %s
+        Status: %s
+        _______________________________________________________________
+        
+        """ % task
+    conn.close()
+    
+    
+
